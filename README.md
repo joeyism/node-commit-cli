@@ -1,4 +1,5 @@
 #Commit-CLI
+[![Build Status](https://travis-ci.org/joeyism/node-commit-cli.svg)](https://travis-ci.org/joeyism/node-commit-cli)
 
 A simple tool to allow you to easily commit your files.
 
