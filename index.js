@@ -2,14 +2,19 @@
 'use strict';
 var parse = require('./lib/parse');
 var git = require('./lib/git');
+var prompt = require('./lib/prompt');
 require('colors');
 var params = process.argv;
 var userParams;
 
 parse.parameters(params).then(function(parsedParams){
 
-    userParams = parsedParams;
-    return git.add(parsedParams.files);
+    return prompt.questions(parsedParams);
+
+}).then(function(result){
+
+    userParams = result;
+    return git.add(userParams.files);
 
 }).then(function(){
 

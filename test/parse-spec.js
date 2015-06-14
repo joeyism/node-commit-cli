@@ -12,12 +12,5 @@ describe('parse', function(){
                 done();
             });
         });
-        
-        it('should return an object even if files arent included, after parsing parameters', function(done){
-            parse.parameters(['node','index','message']).then(function(result){
-                expect(result).to.deep.equal({ message: 'message', files: '.' });
-                done();
-            });
-        });
     });
 });
