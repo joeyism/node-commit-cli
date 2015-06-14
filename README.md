@@ -32,6 +32,8 @@ is the same as
     > commit --all "feature/somefunction: added message"
 
 ### Version
+#### 1.1.0
+* Added ability to variably add branch to commit message
 
 #### 1.0.0
 * First Working 
