@@ -1,0 +1,37 @@
+{
+    "name": "commit-cli",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/joeyism/node-commit-cli.git"
+    },
+    "bin": {
+        "commit": "index.js"
+    },
+    "keywords": [
+        "git",
+        "commit",
+        "cli"
+    ],
+    "author": "Joey Sham <sham.joey@gmail.com> (http://www.joeyism.com)",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/joeyism/node-commit-cli/issues"
+    },
+    "homepage": "https://github.com/joeyism/node-commit-cli#readme",
+    "dependencies": {
+        "colors": "^1.1.0",
+        "promise": "^7.0.1"
+    },
+    "devDependencies": {
+        "chai": "^3.0.0",
+        "istanbul": "^0.3.15",
+        "mocha": "^2.2.5",
+        "mockery": "^1.4.0"
+    }
+}
