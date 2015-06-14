@@ -18,6 +18,11 @@ parse.parameters(params).then(function(parsedParams){
 
 }).then(function(){
 
+    return git.getCurrentBranch();
+
+}).then(function(currentBranch){
+
+    userParams.message = userParams.message.replace("$BR", currentBranch);
     return git.commit(userParams.message);
 
 }).then(function(){
