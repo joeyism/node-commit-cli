@@ -3,39 +3,47 @@
 var parse = require('./lib/parse');
 var git = require('./lib/git');
 var prompt = require('./lib/prompt');
+var Promise = require('promise');
 require('colors');
+
 var params = process.argv;
 var userParams;
 
-git.haveFilesToCommit().then(function(){
+var promise = new Promise(function(resolve, reject){
+    
+    git.haveFilesToCommit().then(function(){
 
-    return parse.parameters(params);
+        return parse.parameters(params);
 
-}).then(function(parsedParams){
+    }).then(function(parsedParams){
 
-    return prompt.questions(parsedParams);
+        return prompt.questions(parsedParams);
 
-}).then(function(result){
+    }).then(function(result){
 
-    userParams = result;
-    return git.add(userParams.files);
+        userParams = result;
+        return git.add(userParams.files);
 
-}).then(function(){
+    }).then(function(){
 
-    return git.getCurrentBranch();
+        return git.getCurrentBranch();
 
-}).then(function(currentBranch){
+    }).then(function(currentBranch){
 
-    userParams.message = userParams.message.replace("$BR", currentBranch);
-    return git.commit(userParams.message);
+        userParams.message = userParams.message.replace("$BR", currentBranch);
+        return git.commit(userParams.message);
 
-}).then(function(){
+    }).then(function(){
 
-    console.log('Files commited');
+        resolve();
+        console.log('Files commited');
 
-}).catch(function(err){
+    }).catch(function(err){
 
-    console.log(err.toString().red);
+        reject();
+        console.log(err.toString().red);
 
+    });
 });
 
+module.exports = promise;
