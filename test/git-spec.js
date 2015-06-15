@@ -121,4 +121,47 @@ describe('git', function(){
         });
     });
 
+    describe('haveFilesToCommit', function(){
+
+        beforeEach(function(done){
+            mockery.enable({
+                warnOnReplace: false,
+                warnOnUnregistered: false,
+                useCleanCache: true
+            });
+            done();
+        });
+
+        afterEach(function(done){
+            mockery.resetCache();
+            mockery.deregisterAll();
+            done();
+        });
+
+        it('should successfully return success since there are files to commit', function(done){
+            mockery.registerMock('child_process', fakeChild(null, 'there are files to commmit\n'));
+            git = require('../lib/git');
+            git.haveFilesToCommit().then(function(){
+                done();
+            });       
+        });
+
+        it('should throw an error when there are no files to commit', function(done){
+            mockery.registerMock('child_process', fakeChild(null,'blahblahblah\nnothing to commit\n'));
+            git = require('../lib/git');
+            git.haveFilesToCommit().catch(function(error){
+                expect(error).to.equal('There are no files to commit');
+                done();
+            });       
+        });
+        
+        it('should throw an error when getting current branch throws an error', function(done){
+            mockery.registerMock('child_process', fakeChild('error','whatever'));
+            git = require('../lib/git');
+            git.haveFilesToCommit().catch(function(error){
+                expect(error).to.equal('error');
+                done();
+            });       
+        });
+    });
 });
