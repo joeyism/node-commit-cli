@@ -45,6 +45,5 @@ var promise = new Promise(function(resolve, reject){
 
     });
 });
-module.exports = {
 
-};
+module.exports = promise;
