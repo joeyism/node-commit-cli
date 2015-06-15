@@ -9,7 +9,7 @@ require('colors');
 var params = process.argv;
 var userParams;
 
-var promise = new Promise(function(resolve, reject){
+var promise = new Promise(function(resolve){
     
     git.haveFilesToCommit().then(function(){
 
@@ -40,7 +40,7 @@ var promise = new Promise(function(resolve, reject){
 
     }).catch(function(err){
 
-        reject();
+        resolve();
         console.log(err.toString().red);
 
     });
