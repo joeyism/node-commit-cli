@@ -7,7 +7,11 @@ require('colors');
 var params = process.argv;
 var userParams;
 
-parse.parameters(params).then(function(parsedParams){
+git.haveFilesToCommit().then(function(){
+
+    return parse.parameters(params);
+
+}).then(function(parsedParams){
 
     return prompt.questions(parsedParams);
 
