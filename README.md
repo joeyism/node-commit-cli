@@ -33,7 +33,7 @@ is the same as
     > commit --all "feature/somefunction: added message"
 
 ### Version
-#### 1.2.3
+#### 1.2.4
 * Show which files are commited
 
 #### 1.2.0
