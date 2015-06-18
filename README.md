@@ -33,6 +33,9 @@ is the same as
     > commit --all "feature/somefunction: added message"
 
 ### Version
+#### 1.2.3
+* Show which files are commited
+
 #### 1.2.0
 * Added a check to see if there are files to commit first
 
