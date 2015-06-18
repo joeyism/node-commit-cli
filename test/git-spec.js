@@ -164,4 +164,32 @@ describe('git', function(){
             });       
         });
     });
+
+    describe('showFilesAdded', function(){
+        
+        beforeEach(function(done){
+            mockery.enable({
+                warnOnReplace: false,
+                warnOnUnregistered: false,
+                useCleanCache: true
+            });
+            done();
+        });
+
+        afterEach(function(done){
+            mockery.resetCache();
+            mockery.deregisterAll();
+            done();
+        });
+
+        it('should correctly display files added', function(done){
+            var result = 'On branch master\nChanges to be committed:\n(use "git reset HEAD <file>..." to unstage)\nmodified:   coverage/lcov-report/index.html\nmodified:   coverage/lcov-report/lib/git.js.html\nmodified:   coverage/lcov-report/lib/index.html\n';
+            mockery.registerMock('child_process', fakeChild(null, result));
+            git = require('../lib/git');
+            git.showFilesAdded().then(function(result){
+                expect(result).to.equal('modified:   coverage/lcov-report/lib/git.js.html');
+                done();
+            });             
+        });
+    });
 });

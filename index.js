@@ -9,7 +9,7 @@ require('colors');
 var params = process.argv;
 var userParams;
 
-var promise = new Promise(function(resolve, reject){
+var promise = new Promise(function(resolve){
     
     git.haveFilesToCommit().then(function(){
 
@@ -26,6 +26,13 @@ var promise = new Promise(function(resolve, reject){
 
     }).then(function(){
 
+        return git.showFilesAdded()
+
+    }).then(function(files){
+
+        console.log('These are the files to be commited: \n'.yellow);
+        console.log(files);
+        console.log('\n');
         return git.getCurrentBranch();
 
     }).then(function(currentBranch){
@@ -40,7 +47,7 @@ var promise = new Promise(function(resolve, reject){
 
     }).catch(function(err){
 
-        reject();
+        resolve();
         console.log(err.toString().red);
 
     });
