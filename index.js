@@ -32,7 +32,6 @@ var promise = new Promise(function(resolve){
 
         console.log('These are the files to be commited: \n'.yellow);
         console.log(files);
-        console.log('\n');
         return git.getCurrentBranch();
 
     }).then(function(currentBranch){
