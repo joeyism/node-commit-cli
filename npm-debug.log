@@ -1,0 +1,32 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'test' ]
+2 info using npm@2.11.0
+3 info using node@v0.12.4
+4 verbose stack Error: Failed to parse json
+4 verbose stack Unexpected token '<' at 3:1
+4 verbose stack <<<<<<< HEAD
+4 verbose stack ^
+4 verbose stack     at parseError (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:379:11)
+4 verbose stack     at parseJson (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:68:23)
+4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:48:5
+4 verbose stack     at evalmachine.<anonymous>:334:14
+4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:102:5
+4 verbose stack     at FSReqWrap.oncomplete (evalmachine.<anonymous>:95:15)
+5 verbose cwd /home/dante/Documents/Programming/nodejs/commit-cli
+6 error Linux 3.13.0-37-generic
+7 error argv "node" "/usr/local/bin/npm" "test"
+8 error node v0.12.4
+9 error npm  v2.11.0
+10 error file /home/dante/Documents/Programming/nodejs/commit-cli/package.json
+11 error code EJSONPARSE
+12 error Failed to parse json
+12 error Unexpected token '<' at 3:1
+12 error <<<<<<< HEAD
+12 error ^
+13 error File: /home/dante/Documents/Programming/nodejs/commit-cli/package.json
+14 error Failed to parse package.json data.
+14 error package.json must be actual JSON, not just JavaScript.
+14 error
+14 error This is not a bug in npm.
+14 error Tell the package author to fix their package.json file. JSON.parse
+15 verbose exit [ 1, true ]

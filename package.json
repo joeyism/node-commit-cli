@@ -1,10 +1,6 @@
 {
   "name": "commit-cli",
-<<<<<<< HEAD
   "version": "1.2.3",
-=======
-  "version": "1.2.2",
->>>>>>> 86d9dc838aaf264ebed4343eafbb367c73685b27
   "description": "",
   "main": "index.js",
   "scripts": {
