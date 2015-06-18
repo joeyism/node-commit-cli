@@ -26,6 +26,12 @@ var promise = new Promise(function(resolve){
 
     }).then(function(){
 
+        return git.showFilesAdded()
+
+    }).then(function(files){
+
+        console.log('These are the files to be commited: \n'.yellow);
+        console.log(files);
         return git.getCurrentBranch();
 
     }).then(function(currentBranch){
