@@ -12,13 +12,13 @@ In order to install, run
 ## To Run
 To commit [files] with message [message], simply type
 
-    > commit [files] [message]
+    > commit [files] -m [message]
 
 If [files] and [message] isn't provided, a prompt will appear for the user to input their values.
 
 **Example**
 
-    > commit index.js package.json "First init commit"
+    > commit index.js package.json -m "First init commit"
 
 #### Commit Message
 In order to add current branch into your commit message (useful for JIRA and STASH commits), add *$BR* to your message
@@ -27,13 +27,16 @@ In order to add current branch into your commit message (useful for JIRA and STA
 
 If your current branch is *feature/somefunction*, then
 
-    > commit --all "$BR: added message"
+    > commit --all -m "$BR: added message"
 
 is the same as
 
-    > commit --all "feature/somefunction: added message"
+    > commit --all -m "feature/somefunction: added message"
 
 ### Version
+### 2.0.0
+* Modified the way user inputs 
+
 ### 1.2.6
 * Updated commited files showings
 
