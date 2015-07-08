@@ -11,11 +11,15 @@ var userParams = params[2];
 
 var promise = new Promise(function(resolve){
     
-    prompt.recommit(parsedParams).then(function(result){
+    prompt.recommit(userParams).then(function(result){
 
         userParams = result;
-        userParams= userParams.replace("$BR", currentBranch);
-        return git.recommit(userParams,"--amend");
+        return git.getCurrentBranch();
+        
+    }).then(function(currentBranch){
+        
+        userParams = userParams.replace("$BR", currentBranch);
+        return git.commit(userParams,"--amend");
 
     }).then(function(){
 
