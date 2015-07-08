@@ -11,7 +11,8 @@
     "url": "git+https://github.com/joeyism/node-commit-cli.git"
   },
   "bin": {
-    "commit": "commit.js"
+    "commit": "commit.js",
+    "recommit": "recommit.js"
   },
   "keywords": [
     "git",

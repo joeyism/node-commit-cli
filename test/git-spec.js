@@ -66,7 +66,7 @@ describe('git', function(){
             done();
         });
 
-        it('should successfully add given files', function(done){
+        it('should successfully commit given files', function(done){
             mockery.registerMock('child_process', fakeChild(null, 'doesnt matter'));
             git = require('../lib/git');
             git.commit('message').then(function(result){
