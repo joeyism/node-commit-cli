@@ -10,6 +10,8 @@ In order to install, run
     > npm install -g commit-cli
 
 ## To Run
+
+### Commit
 To commit [files] with message [message], simply type
 
     > commit [files] -m [message]
@@ -20,7 +22,12 @@ If [files] and [message] isn't provided, a prompt will appear for the user to in
 
     > commit index.js package.json -m "First init commit"
 
-#### Commit Message
+### Recommit
+To recommit the last message with [new-message], simply type
+
+    > recommit [new-message]
+
+### Commit Message
 In order to add current branch into your commit message (useful for JIRA and STASH commits), add *$BR* to your message
 
 **Example**
@@ -33,7 +40,14 @@ is the same as
 
     > commit --all -m "feature/somefunction: added message"
 
+Recommit can be done by
+
+    > recommit "$BR: some new message"
+
 ### Version
+### 2.1.0
+* Added functionality of recommit
+
 ### 2.0.0
 * Modified the way user inputs 
 
