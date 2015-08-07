@@ -2,7 +2,7 @@
   "name": "commit-cli",
   "version": "2.1.2",
   "description": "A CLI that allows you to git commit your changes easily",
-  "main": "commit.js",
+  "main": "index.js",
   "scripts": {
     "test": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha"
   },
