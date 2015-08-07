@@ -38,6 +38,7 @@ var promise = new Promise(function(resolve){
         files.forEach(function(file){
             console.log('  - '.yellow + file.blue);
         });
+        console.log('');
         return git.getCurrentBranch();
 
     }).then(function(currentBranch){
@@ -48,7 +49,7 @@ var promise = new Promise(function(resolve){
     }).then(function(){
 
         resolve();
-        console.log('Files successfully commited');
+        console.log('Files successfully commited'.green);
 
     }).catch(function(err){
 
