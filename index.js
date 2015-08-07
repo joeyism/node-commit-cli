@@ -1,6 +1,10 @@
 "use strict";
 
 module.exports = {
-    commit: require("./commit"),
-    recommit: require("./recommit")
+    commit: function(){
+        return require("./commit");
+    },
+    recommit: function(){
+        return require("./recommit");
+    }
 };
