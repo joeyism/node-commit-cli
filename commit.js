@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 var parse = require('./lib/parse');
-var git = require('./lib/git');
+var git = require('git-lib');
 var prompt = require('./lib/prompt');
 var Promise = require('promise');
 require('colors');
@@ -10,8 +10,12 @@ var params = process.argv;
 var userParams;
 
 var promise = new Promise(function(resolve){
+
+    git.isGit().then(function(){
+
+        return git.haveFilesToCommit();
     
-    git.haveFilesToCommit().then(function(){
+    }).then(function(){
 
         return parse.parameters(params);
 
@@ -26,12 +30,14 @@ var promise = new Promise(function(resolve){
 
     }).then(function(){
 
-        return git.showFilesAdded()
+        return git.getFilesCached()
 
     }).then(function(files){
 
         console.log('These are the files to be commited: \n'.yellow);
-        console.log(files);
+        files.forEach(function(file){
+            console.log('  - '.yellow + file.blue);
+        });
         return git.getCurrentBranch();
 
     }).then(function(currentBranch){
@@ -42,7 +48,7 @@ var promise = new Promise(function(resolve){
     }).then(function(){
 
         resolve();
-        console.log('Files commited');
+        console.log('Files successfully commited');
 
     }).catch(function(err){
 
