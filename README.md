@@ -45,6 +45,9 @@ Recommit can be done by
     > recommit "$BR: some new message"
 
 ### Version
+### 2.1.2
+* Fixed bug where commit-cli couldn't be depended on
+
 ### 2.1.1
 * Updated to use git-lib
 
